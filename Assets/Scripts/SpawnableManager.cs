@@ -14,11 +14,14 @@ public class SpawnableManager : MonoBehaviour
     Camera arCam;
     GameObject spawnedObject;
 
+    bool petSpawned;
+
     // Start is called before the first frame update
     void Start()
     {
         spawnedObject = null;
         arCam = GameObject.Find("AR Camera").GetComponent<Camera>();
+        petSpawned = false;
     }
 
     // Update is called once per frame
@@ -40,7 +43,7 @@ public class SpawnableManager : MonoBehaviour
                     {
                         spawnedObject = hit.collider.gameObject;
                     }
-                    else
+                    else if (petSpawned == false)
                     {
                         SpawnPrefab(m_Hits[0].pose.position);
                     }
@@ -60,5 +63,9 @@ public class SpawnableManager : MonoBehaviour
     private void SpawnPrefab(Vector3 spawnPosition)
     {
         spawnedObject = Instantiate(spawnablePrefab, spawnPosition, Quaternion.identity);
+        //make the pet face world origin
+        spawnedObject.transform.LookAt(Vector3.zero);
+        //pet is spawned, no need to spawn more
+        petSpawned = true;
     }
 }
