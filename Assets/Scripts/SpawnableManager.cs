@@ -64,7 +64,7 @@ public class SpawnableManager : MonoBehaviour
     {
         spawnedObject = Instantiate(spawnablePrefab, spawnPosition, Quaternion.identity);
         //make the pet face world origin
-        spawnedObject.transform.LookAt(Vector3.zero);
+        spawnedObject.transform.LookAt(arCam.transform.position);
         //pet is spawned, no need to spawn more
         petSpawned = true;
     }
