@@ -272,6 +272,7 @@ GameObject:
   - component: {fileID: 4769672895409540608}
   - component: {fileID: 1066395860119251863}
   - component: {fileID: 8725668213768149786}
+  - component: {fileID: 4919018614200196209}
   m_Layer: 0
   m_Name: Worm_V2
   m_TagString: Insect
@@ -658,6 +659,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!64 &4919018614200196209
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2480066734975873925}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &3959089483909112901
 GameObject:
   m_ObjectHideFlags: 0

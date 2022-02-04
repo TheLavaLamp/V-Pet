@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Insect
   - Pet
+  - Slider
   layers:
   - Default
   - TransparentFX
