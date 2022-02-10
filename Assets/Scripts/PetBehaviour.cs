@@ -12,7 +12,6 @@ public class PetBehaviour : MonoBehaviour
     void Start()
     {
         stamina = GameObject.FindGameObjectWithTag("Slider").GetComponent<Slider>();
-        stamina.value = 1.0f;
         StartCoroutine("DecreaseStamina");
     }
 
@@ -26,11 +25,13 @@ public class PetBehaviour : MonoBehaviour
     {
         if(other.gameObject.tag == "Insect")
         {
-            Destroy(other.gameObject);
+            InsectBehaviour insect = other.gameObject.GetComponent<InsectBehaviour>();
             if(stamina.value < 1.0f)
             {
-                stamina.value += 0.1f;
+                stamina.value += insect.staminaFill;
+                Debug.Log(insect.staminaFill);
             }
+            Destroy(other.gameObject);
         }
     }
 
@@ -41,7 +42,7 @@ public class PetBehaviour : MonoBehaviour
             yield return new WaitForSeconds(10);
             if (stamina.value > 0.0f)
             {
-                stamina.value -= 0.1f;
+                stamina.value -= 10.0f;
             }
         }
     }

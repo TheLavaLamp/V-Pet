@@ -46,6 +46,10 @@ public class SpawnableManager : MonoBehaviour
                     {
                         spawnedObject = hit.collider.gameObject;
                     }
+                    else if(hit.collider.gameObject.tag == "Pet")
+                    {
+                        Debug.Log("Pet");
+                    }
                     else if (spawnedPrefabCount < maxPrefabSpawnCount)
                     {
                         SpawnPrefab(m_Hits[0].pose.position);

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class InsectBehaviour : MonoBehaviour
 {
+    public float staminaFill;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,13 +17,5 @@ public class InsectBehaviour : MonoBehaviour
     void Update()
     {
         
-    }
-
-    void OnCollisionEnter(Collision other)
-    {
-        if(other.gameObject.tag == "Pet")
-        {
-            Destroy(this.gameObject);
-        }
     }
 }

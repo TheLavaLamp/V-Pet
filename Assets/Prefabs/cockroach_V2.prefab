@@ -549,6 +549,7 @@ GameObject:
   - component: {fileID: 3250893174442385030}
   - component: {fileID: 4713445517727556235}
   - component: {fileID: 8203394691293680283}
+  - component: {fileID: -2476588559124853451}
   m_Layer: 0
   m_Name: cockroach_V2
   m_TagString: Insect
@@ -949,6 +950,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &-2476588559124853451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3081242918142618828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 342eacd1e996f8a439bf89ca59ffc4f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  staminaFill: 20
 --- !u!1 &3520247620224773565
 GameObject:
   m_ObjectHideFlags: 0
