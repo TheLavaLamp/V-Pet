@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7727242767793647826}
   - component: {fileID: 1598337614963050}
   - component: {fileID: 6697745489844054470}
+  - component: {fileID: 694053089192737650}
   m_Layer: 0
   m_Name: Baby_UV
   m_TagString: Pet
@@ -108,3 +109,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.1904471, y: 0.37695312, z: 0.15165761}
   m_Center: {x: 0.014887847, y: 0.19360352, z: 0.24822997}
+--- !u!195 &694053089192737650
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8087429377587171591}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.29634067
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.8179564
+  m_BaseOffset: 0.4089782
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

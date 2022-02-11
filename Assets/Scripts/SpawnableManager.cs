@@ -44,6 +44,7 @@ public class SpawnableManager : MonoBehaviour
                 {
                     if(hit.collider.gameObject.tag == "Insect")
                     {
+                        Debug.Log("Grab");
                         spawnedObject = hit.collider.gameObject;
                     }
                     else if(hit.collider.gameObject.tag == "Pet")

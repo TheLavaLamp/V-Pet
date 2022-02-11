@@ -26,7 +26,7 @@ public class PetBehaviour : MonoBehaviour
         if(other.gameObject.tag == "Insect")
         {
             InsectBehaviour insect = other.gameObject.GetComponent<InsectBehaviour>();
-            if(stamina.value < 1.0f)
+            if(stamina.value < 100.0f)
             {
                 stamina.value += insect.staminaFill;
                 Debug.Log(insect.staminaFill);
