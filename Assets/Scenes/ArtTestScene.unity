@@ -678,6 +678,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1466837924, guid: 59d9672af6564e346ac1348ece6ae207, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 780406382197002901, guid: 59d9672af6564e346ac1348ece6ae207,
+        type: 3}
+      propertyPath: bodyAnim
+      value: 
+      objectReference: {fileID: 634398349}
     - target: {fileID: 1443714766368902111, guid: 59d9672af6564e346ac1348ece6ae207,
         type: 3}
       propertyPath: m_BlendShapeWeights.Array.size
@@ -923,6 +932,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 590687650}
   m_CullTransparentMesh: 1
+--- !u!95 &634398349 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8322806777715237063, guid: 59d9672af6564e346ac1348ece6ae207,
+    type: 3}
+  m_PrefabInstance: {fileID: 573874089}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &807564291
 GameObject:
   m_ObjectHideFlags: 0
