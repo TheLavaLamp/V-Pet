@@ -10,11 +10,14 @@ public class SpawnableManager : MonoBehaviour
     List<ARRaycastHit> m_Hits = new List<ARRaycastHit>();
     [SerializeField]
     GameObject spawnablePrefab;
-
     Camera arCam;
     GameObject spawnedObject;
-
+    GameObject spawnedBug;
     bool petSpawned;
+    private List<GameObject> spawnedPrefabList = new List<GameObject>();
+
+    private int maxPrefabSpawnCount = 1;
+    private int spawnedPrefabCount;
 
     // Start is called before the first frame update
     void Start()
@@ -39,11 +42,16 @@ public class SpawnableManager : MonoBehaviour
             {
                 if(Physics.Raycast(ray, out hit))
                 {
-                    if(hit.collider.gameObject.tag == "Spawnable")
+                    if(hit.collider.gameObject.tag == "Insect")
                     {
+                        Debug.Log("Grab");
                         spawnedObject = hit.collider.gameObject;
                     }
-                    else if (petSpawned == false)
+                    else if(hit.collider.gameObject.tag == "Pet")
+                    {
+                        Debug.Log("Pet");
+                    }
+                    else if (spawnedPrefabCount < maxPrefabSpawnCount)
                     {
                         SpawnPrefab(m_Hits[0].pose.position);
                     }
@@ -63,9 +71,17 @@ public class SpawnableManager : MonoBehaviour
     private void SpawnPrefab(Vector3 spawnPosition)
     {
         spawnedObject = Instantiate(spawnablePrefab, spawnPosition, Quaternion.identity);
-        //make the pet face world origin
+        //make the pet face AR camera
         spawnedObject.transform.LookAt(arCam.transform.position);
+        //count spawned prefabs so count does not go over limit
+        spawnedPrefabCount++;
         //pet is spawned, no need to spawn more
-        petSpawned = true;
+        //petSpawned = true;
+    }
+
+    public void SetPrefabType(GameObject spawnableBug)
+    {
+        spawnablePrefab = spawnableBug;
+        maxPrefabSpawnCount = 11;
     }
 }
