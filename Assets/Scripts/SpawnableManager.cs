@@ -19,6 +19,7 @@ public class SpawnableManager : MonoBehaviour
     private int maxPrefabSpawnCount = 1;
     private int spawnedPrefabCount;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,7 +50,7 @@ public class SpawnableManager : MonoBehaviour
                     }
                     else if(hit.collider.gameObject.tag == "Pet")
                     {
-                        Debug.Log("Pet");
+                        //Debug.Log("Pet");
                     }
                     else if (spawnedPrefabCount < maxPrefabSpawnCount)
                     {
@@ -72,7 +73,7 @@ public class SpawnableManager : MonoBehaviour
     {
         spawnedObject = Instantiate(spawnablePrefab, spawnPosition, Quaternion.identity);
         //make the pet face AR camera
-        spawnedObject.transform.LookAt(arCam.transform.position);
+        //spawnedObject.transform.LookAt(arCam.transform.position);
         //count spawned prefabs so count does not go over limit
         spawnedPrefabCount++;
         //pet is spawned, no need to spawn more

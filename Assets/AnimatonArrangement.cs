@@ -30,6 +30,7 @@ public class AnimatonArrangement : MonoBehaviour
     }
     public void Love()
     {
+        Debug.Log("Love");
         faceAnim.SetTrigger("Love");
         bodyAnim.SetTrigger("Love");
     }
