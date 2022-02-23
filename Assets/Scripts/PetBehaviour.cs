@@ -37,37 +37,7 @@ public class PetBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Swipe();
-    }
 
-    public void Swipe()
-    {
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-        {
-            startTouchPosition = Input.GetTouch(0).position;
-        }
-
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
-        {
-            currentPosition = Input.GetTouch(0).position;
-            Vector2 Distance = currentPosition - startTouchPosition;
-
-            if (!stopTouch)
-            {
-                Debug.Log("swipe");
-                GetComponent<AnimatonArrangement>().Love();
-                stopTouch = true;
-            }
-        }
-
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)
-        {
-            stopTouch = false;
-
-            endTouchPosition = Input.GetTouch(0).position;
-
-            Vector2 Distance = endTouchPosition - startTouchPosition;
-        }
     }
 
     void OnCollisionEnter(Collision other)

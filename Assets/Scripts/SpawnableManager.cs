@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
+using UnityEngine.UI;
 
 public class SpawnableManager : MonoBehaviour
 {
@@ -15,10 +16,10 @@ public class SpawnableManager : MonoBehaviour
     GameObject spawnedBug;
     bool petSpawned;
     private List<GameObject> spawnedPrefabList = new List<GameObject>();
+    private Button button;
 
     private int maxPrefabSpawnCount = 1;
     private int spawnedPrefabCount;
-
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,13 @@ public class SpawnableManager : MonoBehaviour
         spawnedObject = null;
         arCam = GameObject.Find("AR Camera").GetComponent<Camera>();
         petSpawned = false;
+
+        GameObject[] spawnButtons = GameObject.FindGameObjectsWithTag("SpawnButton");
+        foreach (GameObject spawnButton in spawnButtons)
+        {
+            button = spawnButton.GetComponent<Button>();
+            button.interactable = false;
+        }
     }
 
     // Update is called once per frame
@@ -50,7 +58,8 @@ public class SpawnableManager : MonoBehaviour
                     }
                     else if(hit.collider.gameObject.tag == "Pet")
                     {
-                        //Debug.Log("Pet");
+                        Debug.Log("Pet");
+                        hit.collider.gameObject.GetComponent<AnimatonArrangement>().Love();
                     }
                     else if (spawnedPrefabCount < maxPrefabSpawnCount)
                     {
@@ -76,8 +85,18 @@ public class SpawnableManager : MonoBehaviour
         //spawnedObject.transform.LookAt(arCam.transform.position);
         //count spawned prefabs so count does not go over limit
         spawnedPrefabCount++;
-        //pet is spawned, no need to spawn more
-        //petSpawned = true;
+
+        if(petSpawned == false)
+        {
+            //Debug.Log("petSpawned");
+            GameObject[] spawnButtons = GameObject.FindGameObjectsWithTag("SpawnButton");
+            foreach (GameObject spawnButton in spawnButtons)
+            {
+                button = spawnButton.GetComponent<Button>();
+                button.interactable = true;
+            }
+            petSpawned = true;
+        }
     }
 
     public void SetPrefabType(GameObject spawnableBug)

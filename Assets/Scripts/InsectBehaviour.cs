@@ -5,6 +5,7 @@ using UnityEngine;
 public class InsectBehaviour : MonoBehaviour
 {
     public float staminaFill;
+
  /*   float timeCounter = 0;
 
     float speed;

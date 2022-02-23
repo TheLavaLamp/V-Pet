@@ -31,7 +31,7 @@ Transform:
   m_Children:
   - {fileID: 1135686672143131495}
   - {fileID: 241361879719513662}
-  m_Father: {fileID: 2199632064874043866}
+  m_Father: {fileID: 944196096587760499}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!95 &8926899695251444191
@@ -267,11 +267,11 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2199632064874043866}
+  - component: {fileID: 944196096587760499}
   - component: {fileID: 780406382197002901}
   - component: {fileID: 3361858246735658780}
   - component: {fileID: 7756120421873191636}
-  - component: {fileID: 7957882842583395604}
+  - component: {fileID: 2434486407498566003}
   m_Layer: 0
   m_Name: VPet_FacialSetup
   m_TagString: Pet
@@ -279,8 +279,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2199632064874043866
-Transform:
+--- !u!224 &944196096587760499
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -296,6 +296,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &780406382197002901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,6 +327,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345129afd5785f94a90259ee7d3816d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swipeRange: 50
+  tapRange: 0
 --- !u!65 &7756120421873191636
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -335,7 +342,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.31350565, y: 0.38726902, z: 0.32426134}
   m_Center: {x: -0.017717034, y: 0.21355557, z: 0.13014846}
---- !u!114 &7957882842583395604
+--- !u!114 &2434486407498566003
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -344,11 +351,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 5277893323658544601}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 198d6cf83039a3e448f760d6da4f5a2c, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ead18550e735a04c9d845cc7df76f37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  faceAnim: {fileID: 8926899695251444191}
-  bodyAnim: {fileID: 763039098}
+  minimumDistance: 100
+  maximumTime: 0.125
+  checkAngle: 0
+  desiredAngle: 0
+  maximumRange: 90
+  swipeTransitions:
+    speed: -1
+    roots: []
+    aliases: []
+    targets: []
+    entries:
+    - root: {fileID: 0}
+      speed: -1
+      aliases: []
+  onSwipe:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 780406382197002901}
+        m_TargetAssemblyTypeName: AnimatonArrangement, Assembly-CSharp
+        m_MethodName: Love
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8003437644544126002
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,7 +469,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 2199632064874043866}
+    m_TransformParent: {fileID: 944196096587760499}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 03063737697cff843af9e5ec316c8b92,
         type: 3}
@@ -573,7 +607,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 2199632064874043866}
+    m_TransformParent: {fileID: 944196096587760499}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ef100b0ae9d297f4bb677d888f145778,
         type: 3}
